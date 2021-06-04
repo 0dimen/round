@@ -13,8 +13,7 @@ class routineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRoutineBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
+        init()
     }
 
     fun init(){
@@ -27,10 +26,10 @@ class routineActivity : AppCompatActivity() {
                 val routine = routineData(routineID, routineName, routineTerm)//기간 24시간으로 들어감.
                 val result = DBHelper.insertRoutine(routine)
                 if (result) {
-                    Toast.makeText(this@routineActivity, "Data INSERT SUCCESS", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this@routineActivity, "Data INSERT SUCCESS", Toast.LENGTH_SHORT).show()
                     //새로운 루틴 추가 -> 스케줄 추가 화면.
                     val nextIntent = Intent(this@routineActivity, scheduleActivity::class.java)
-                    nextIntent.putExtra("RID", routineID)
+                    nextIntent.putExtra("RID", routineID.toString())
                     startActivity(nextIntent)
                 }else{
                     Toast.makeText(this@routineActivity, "Data INSERT FAILED", Toast.LENGTH_SHORT).show()

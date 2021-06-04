@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class sDBHelper(val context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object{
-        val DB_NAME = "mydb.db"
+        val DB_NAME = "myScheduleDB.db"
         val DB_VERSION = 1
         val TABLE_NAME = "scheduleData"
         val RID = "routineID"
@@ -34,6 +34,7 @@ class sDBHelper(val context: Context) : SQLiteOpenHelper(context, DB_NAME, null,
 
     fun insertSchedule(schedule:scheduleData):Boolean{
         val values = ContentValues()
+        values.put(RID, schedule.routineID)
         values.put(SNAME, schedule.scheduleName)
         values.put(SSTART, schedule.startTime)
         values.put(SEND, schedule.endTime)

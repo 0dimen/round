@@ -29,7 +29,8 @@ class scheduleActivity : AppCompatActivity() {
 
     private fun init(){
         DBHelper = sDBHelper(this)
-        val routineID: Int = getIntent().getExtras()!!.getInt("RID")
+        val routineID: Int = intent.getStringExtra("RID").toString().toInt()
+
 
         binding.apply{
             insertBtn.setOnClickListener{
@@ -41,7 +42,7 @@ class scheduleActivity : AppCompatActivity() {
                 if (result){
                     Toast.makeText(this@scheduleActivity, "Data INSERT SUCCESS", Toast.LENGTH_SHORT).show()
                 }else{
-                    Toast.makeText(this@scheduleActivity, "Data INSERT FAILED", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@scheduleActivity, "Failed", Toast.LENGTH_SHORT).show()
                 }
                 clearEditText()
             }

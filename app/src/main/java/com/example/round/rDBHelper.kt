@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class rDBHelper(val context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     companion object{
-        val DB_NAME = "mydb.db"
+        val DB_NAME = "myRoutineDB.db"
         val DB_VERSION = 1
         val TABLE_NAME = "routineData"
         val RID = "routineID"
